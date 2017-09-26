@@ -266,7 +266,7 @@
         // if pager is requested, add it
         if (slider.settings.pager) { appendPager(); }
         // if any control option is requested, add the controls wrapper
-        if (slider.settings.controls || slider.settings.autoControls || slider.settings.pager) { slider.viewport.after(slider.controls.el); }
+        if (slider.settings.controls || slider.settings.autoControls || slider.settings.pager) { slider.viewport.append(slider.controls.el); }
       // if ticker mode, do not allow a pager
       } else {
         slider.settings.pager = false;
@@ -725,11 +725,16 @@
     var appendCaptions = function() {
       // cycle through each child
       slider.children.each(function(index) {
-        // get the image title attribute
-        var title = $(this).find('img:first').attr('title');
+        // get the image alt attribute
+        var alt = $(this).find('img:first').attr('alt');
         // append the caption
-        if (title !== undefined && ('' + title).length) {
-          $(this).append('<div class="bx-caption"><span>' + title + '</span></div>');
+        if (alt !== undefined && ('' + alt).length) {
+          var ahref=$(this).find('a:first').attr('href');
+          if(ahref!==undefined && (''+ahref).length){
+            $(this).append('<div class="bx-caption"><a href="'+ahref+'">'+alt+'</a></div>');
+          }else{
+            $(this).append('<div class="bx-caption"><span>' + alt + '</span></div>');
+          }   
         }
       });
     };
