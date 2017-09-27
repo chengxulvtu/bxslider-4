@@ -729,9 +729,14 @@
         var alt = $(this).find('img:first').attr('alt');
         // append the caption
         if (alt !== undefined && ('' + alt).length) {
-          var ahref = $(this).find('a:first').attr('href');
+          $a = $(this).find('a:first');
+          var ahref = $a.attr('href');
           if (ahref !== undefined && ('' + ahref).length) {
-            var $bxCaption = $('<div class="bx-caption"><a href="' + ahref + '">' + alt + '</a></div>');
+            var aTarget = $a.attr('target');
+            if (aTarget == undefined || !('' + aTarget).length) {
+              aTarget = '_self';
+            }
+            var $bxCaption = $('<div class="bx-caption"><a href="' + ahref + '" target="' + aTarget + '">' + alt + '</a></div>');
             $bxCaption.on('click', function () {
               window.location.href = ahref;
             })

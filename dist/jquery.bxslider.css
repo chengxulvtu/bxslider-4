@@ -174,7 +174,7 @@ ul.bxslider {
   font-family: Arial;
   display: block;
   font-size: 1em;
-  padding:10px 5% 10px 5%;
+  padding:10px;
 }
 
 .bx-wrapper .bx-caption a {
@@ -183,8 +183,14 @@ ul.bxslider {
   display: block;
   font-size: 1em;
   text-decoration: none;
-  padding:10px 5% 10px 5%;
-  width:90%;
+  padding:10px;
+  width:100%;
+  -moz-box-sizing: border-box;  
+  -webkit-box-sizing: border-box; 
+  -o-box-sizing: border-box; 
+  -ms-box-sizing: border-box; 
+  box-sizing: border-box;
+
 }
 
 .bx-wrapper .bx-caption a:hover{
