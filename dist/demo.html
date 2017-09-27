@@ -2,6 +2,11 @@
     <head>
 
         <link href="jquery.bxslider.css" rel="stylesheet"/>
+        <style type="text/css">
+        a:hover{
+            color:red !important;
+        }
+        </style>
         <script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="./jquery.bxslider.js"></script>
         <script>
@@ -9,7 +14,9 @@
             $('.bxslider').bxSlider({
                 slideWidth:400,
                 captions:true,
-                
+                auto:true,
+                pause:2000,
+                controls:false
 		});
         });
         </script>
